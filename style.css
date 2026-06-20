@@ -57,6 +57,9 @@ background-color: lightblue;
     background-color: lightgray;
     
 }
+#videoInput{
+    display: none;
+}
 li{
    padding: 0.25rem; 
 }
@@ -64,6 +67,12 @@ li{
 main{
     background-color: black;
     height: calc(100vh - 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video{
+    height: 100%;
 }
 /*****footer*****/
 footer{
