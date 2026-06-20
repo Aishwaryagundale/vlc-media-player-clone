@@ -33,12 +33,29 @@ height: 50%;
 }
 .menu{
    position:relative;
+   
+}
+.menu-btn:hover{
+background-color: lightblue;
 }
 .menu-items{
-    background-color: rgb(238, 238, 238);
     position: absolute;
-    top: 15px;
-    width: 9rem; 
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    display: none;
+    width: 7rem;
+    background-color: rgb(238, 238, 238);
+}
+.menu:hover .menu-items{
+    display: block;
+}
+
+
+.menu-items li:hover{
+    background-color: lightgray;
+    
 }
 li{
    padding: 0.25rem; 
