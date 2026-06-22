@@ -74,6 +74,14 @@ main{
 .video{
     height: 100%;
 }
+.toast{
+    color: white;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 99px;
+    right: 47px;
+    display: none;
+}
 /*****footer*****/
 footer{
     
