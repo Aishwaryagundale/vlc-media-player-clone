@@ -63,12 +63,8 @@ speedDown.addEventListener("click",speedDownHandler);
 volumeUp.addEventListener("click",volumeUpHandler);
 volumeDown.addEventListener("click",volumeDownHandler);
 videoBtn.addEventListener("click",HandleInput);
-const SelectedFile = (obj) => {
-    console.log("file is selected");
-    const selectedFiles = obj.target.files[0];
-    
-    if (!selectedFiles) return;
-    const link = URL.createObjectURL(selectedFiles);
+const loadVideo = function (file){
+     const link = URL.createObjectURL(file);
     const video = document.createElement("video");
     video.src=link;
     video.setAttribute("class","video");
@@ -77,9 +73,35 @@ const SelectedFile = (obj) => {
     videoPlayer.appendChild(video);
     video.play();
     video.volume = 0.7;
+}
+const SelectedFile= (obj) => {
+    console.log("file is selected");
+    const selectedFiles = obj.target.files[0];
+    
+    if (!selectedFiles) return;
+    if (!selectedFiles.type.startsWith("video/")) {
+    alert("Please select a video file");
+    return;
+}
+   
 
+   loadVideo(selectedFiles);
+}
+const HandleDrop = (event) => {
+    event.preventDefault();
 
-    // now we have the file we need to convert it 
-    //src -> base64
+    const file = event.dataTransfer.files[0];
+
+    if (!file) return;
+    if (! file.type.startsWith("video/")) {
+    alert("Please select a video file");
+    return;
+}
+
+    loadVideo(file);
 }
 videoInput.addEventListener("change", SelectedFile);
+videoPlayer.addEventListener("dragover", (event) => {
+    event.preventDefault();
+});
+videoPlayer.addEventListener("drop",HandleDrop);
